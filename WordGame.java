@@ -98,7 +98,7 @@ public class WordGame {
         System.out.println("");
         duplicate_list.displayList();
         System.out.println("");
-        System.out.println("Sublists of duplicates:");
+        System.out.println("SubLists of duplicates:");
         if (duplicate_list.first == null) {
             System.out.println("No duplicates found");
         } else {

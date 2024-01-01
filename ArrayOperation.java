@@ -15,8 +15,9 @@ public class ArrayOperation {
         // generating random numbers
         int[] listA = new int[50];
         int[] listB = new int[50];
-        int[] common = new int[50];
         int[] thelist = new int[100];
+        int[] common = new int[50];
+        
         Random rand = new Random();
         // generate random number between 1 and 49
         int rand_n = rand.nextInt(49) + 1;
@@ -68,7 +69,7 @@ public class ArrayOperation {
                 listB_len--;
             }
         }
-        // generating sorted merged array and sortted common from tally array
+        // generating sorted merged array and sorted common from tally array
         int common_cnt = 0;
         int thelist_cnt = 0;
         for (int i = 0; i < 100; i++) {

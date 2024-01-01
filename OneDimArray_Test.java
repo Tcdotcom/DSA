@@ -42,6 +42,7 @@ public class OneDimArray_Test {
             Scanner input = new Scanner(System.in);
             for (int i = 0; i < size; i++)
                 list[i] = input.nextInt();
+            input.close(); //close the scanner
         }
     
         //Method to create an array using random numbers
