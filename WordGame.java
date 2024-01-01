@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 /**
  * LinkedListOperation
  */
@@ -127,26 +128,58 @@ public class WordGame {
         }
     }
 
+    // public static boolean createNumberList(LinkedList list, String data) {
+    //     Link current = null;
+
+    //     for (int i = 0; i < data.length(); i++) {
+    //         if (data.charAt(i) == ' ') {
+    //             list.first.intData = Integer.parseInt(list.first.chData);
+    //             if (list.first.next != null && list.first.intData < list.first.next.intData) {
+    //                 return false;
+    //             }
+    //             continue;
+    //         }
+    //         if (i == 0 || data.charAt(i - 1) == ' ') {
+    //             list.insertCH(data.charAt(i) + "");
+    //         } else {
+    //             list.first.chData = list.first.chData + "" + data.charAt(i);
+    //         }
+    //         if (i == (data.length() - 1)) {
+    //             list.first.intData = Integer.parseInt(list.first.chData);
+    //         }
+    //     }
+    //     return true;
+    // }
     public static boolean createNumberList(LinkedList list, String data) {
+        Link current = null;
+    
         for (int i = 0; i < data.length(); i++) {
             if (data.charAt(i) == ' ') {
-                list.first.intData = Integer.parseInt(list.first.chData);
-                if (list.first.next != null && list.first.intData < list.first.next.intData) {
-                    return false;
+                if (current != null) {
+                    current.intData = Integer.parseInt(current.chData);
+                    if (current.next != null && current.intData < current.next.intData) {
+                        return false;
+                    }
                 }
                 continue;
             }
+    
             if (i == 0 || data.charAt(i - 1) == ' ') {
                 list.insertCH(data.charAt(i) + "");
+                current = list.first;
             } else {
-                list.first.chData = list.first.chData + "" + data.charAt(i);
+                current.chData = current.chData + "" + data.charAt(i);
             }
+    
             if (i == (data.length() - 1)) {
-                list.first.intData = Integer.parseInt(list.first.chData);
+                if (current != null) {
+                    current.intData = Integer.parseInt(current.chData);
+                }
             }
         }
         return true;
     }
+    
 
     public static int removeVowel(LinkedList list) {
         // remove vowels
@@ -219,6 +252,7 @@ class LinkedList {
 
     public void insertCH(String ch) { // make new link
         insert(ch, null);
+        // insert(ch, 0);
     }
 
     public void insertInt(Integer in) { // make new link
@@ -246,6 +280,7 @@ class LinkedList {
  * Link
  */
 class Link {
+
     String chData;
     Integer intData;
     Link next;
